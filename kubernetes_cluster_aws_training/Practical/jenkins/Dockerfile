@@ -1,4 +1,4 @@
-from jenkins/jenkins:lts-jdk11
+from jenkins/jenkins:2.346.3-2-lts-alpine
 USER root
 # Pipeline
 RUN /usr/local/bin/install-plugins.sh workflow-aggregator && \
@@ -11,11 +11,11 @@ RUN /usr/local/bin/install-plugins.sh workflow-aggregator && \
     /usr/local/bin/install-plugins.sh kubernetes-cli && \
     /usr/local/bin/install-plugins.sh github-branch-source
 
-# install Maven, Java, Docker, AWS
-# RUN apk add --no-cache maven \
-#     openjdk8 \
-#     docker \
-#     gettext
+#install Maven, Java, Docker, AWS
+RUN apk add --no-cache maven \
+    openjdk8 \
+    docker \
+    gettext
 
 # Kubectl
 RUN  wget https://storage.googleapis.com/kubernetes-release/release/$(curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt)/bin/linux/amd64/kubectl && chmod +x ./kubectl && mv ./kubectl /usr/local/bin/kubectl
