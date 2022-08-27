@@ -87,7 +87,7 @@ spec:
       containers:
         - name: jenkins
           image: myjenkins:latest
-          imagePullPolicy: Never
+          #imagePullPolicy: Never
           env:
             - name: JAVA_OPTS
               value: -Djenkins.install.runSetupWizard=false
