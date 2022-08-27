@@ -123,13 +123,12 @@ spec:
   ports:
     - name: ui
       port: 8080
-      #targetPort: 8080
+      targetPort: 8080
       nodePort: 31000
     - name: jnlp
       port: 50000
       targetPort: 50000
-    - name: http
-      port: 80
+    
   selector:
     app: jenkins
 ---
